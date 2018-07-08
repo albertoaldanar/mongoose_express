@@ -36,7 +36,7 @@ router.get("/products", function (req, res){
     //   })
     // })
 
-    Product.update({ p_id: req.params.id }, { $set: { color: req.body.color }}, function(err, object){
+    Product.update({ p_id: req.params.id }, { $set: { inCart: req.body.inCart }}, function(err, object){
     if(err)
       console.log(err)
     res.send(["Bien", object])
