@@ -20,6 +20,8 @@ mongoose.connect("mongodb://localhost:27017/mongoose_express", {
 //   })
 // })
 
+Product.remove({})
+
 const app = express();
 app.use(bodyParser.urlencoded({extend: true}));
 

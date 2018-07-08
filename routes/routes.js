@@ -12,30 +12,40 @@ router.get("/products", function (req, res){
 
 //Ruta que es llamada por el id del QR
   router.get("/products/:id", function (req, res){
-    Product.findOne({p_id: req.params.id}, function(err, object){
+
+    var id = req.params.id;
+
+    Product.findOne({p_id: id}, function(err, object){
       res.json({product: object})
     })
   });
 
 //Ruata para mandar un producto al carrito
   router.put("/products/:id", function (req, res){
-    Product.findOneAndUpdate({p_id: req.params.id}, function(err, object){
-      if(err)
-        res.send(err);
 
-      object.inCart = req.body.inCart;
+    // Product.findOne({p_id: req.params.id}, function(err, object){
+    //   if(err)
+    //     console.log(err);
 
-      object.save(function(err){
-        if(err)
-          res.send(err)
-        res.json({message: "Product updated"});
-      })
-    })
+    //     object.color = req.body.color;
+
+    //   object.save(function(err, objectU){
+    //     if(err)
+    //       console.log(err);
+    //     res.send(["Bien", objectU]);
+    //   })
+    // })
+
+    Product.update({ p_id: req.params.id }, { $set: { color: req.body.color }}, function(err, object){
+    if(err)
+      console.log(err)
+    res.send(["Bien", object])
+  });
   });
 
 //Ruta para mostrar los prductos en el carrito
 router.get("/cart", function(req, res){
-  Product.findMany({inCart: true}, function (err, cart){
+  Product.find({inCart: null}, function (err, cart){
     res.json({cart: cart})
   })
 })
