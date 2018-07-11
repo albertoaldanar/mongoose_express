@@ -5,7 +5,7 @@ var products = [
     description: "Samsung Television",
     price: 15000,
     color: "Negra",
-    photo: "http://www.pngmart.com/files/6/Television-PNG-Transparent-Image.png",
+    photo: "https://media.flixcar.com/f360cdn/Samsung-1791063633-latin_UN55KU6300FXZA_001_Front_black-zoom.png",
     inCart: false
   },
   prod2 = {

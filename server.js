@@ -13,14 +13,15 @@ mongoose.connect("mongodb://localhost:27017/mongoose_express", {
 });
 
 //Creación de instancias de Product
-//products.map((product) => {
-   //var product = new Product(product);
-   //product.save(function(err){
-    //if(err)
-      //return handleError(err);
-    //console.log("Tus productos se han guardado")
-   //})
-//})
+// products.map((product) => {
+//    var product = new Product(product);
+//    product.save(function(err){
+//     if(err)
+//       return handleError(err);
+//     console.log("Tus productos se han guardado")
+//    })
+// });
+
 const app = express();
 app.use(bodyParser.urlencoded({extend: true}));
 
